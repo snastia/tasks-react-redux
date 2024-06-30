@@ -10,7 +10,7 @@ export const TaskCounter = () => {
     if (task.completed) {
        acc.completed += 1 
     } else {
-        acc.active += 1
+       acc.active += 1
     }
     return acc
   }, {active: 0, completed: 0})

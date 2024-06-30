@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 export const TaskList = () => {
     const tasks = useSelector(getTasks)
+
   return (
     <ul className={css.list}>
       {tasks.map(task => (

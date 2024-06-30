@@ -21,6 +21,21 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 tasks: [...state.tasks, action.payload]
             }
+
+        case 'tasks/deleteTask':
+            return{
+                ...state,
+                tasks: state.tasks.filter((task) => {
+                    return task.id !== action.payload.id
+                })
+            }
+        case 'tasks/toggleTask':
+            return{
+                ...state,
+                tasks: state.tasks.map(item => {
+                    return item.id !== action.payload.id ? item : {...item, completed: !item.completed}
+                })
+            }    
     
         default:
             return state;
