@@ -26,6 +26,12 @@ export const toggleTask = (id) => {
   }
 }}
 
+export const setStatusFilter = (value) => {
+  return {
+    type: 'tasks/setStatusFilter',
+    payload: value,
+}}
+
 // {
 //     type: 'tasks/deleteTask'
 // }
