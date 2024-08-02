@@ -1,17 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { createSlice } from '@reduxjs/toolkit';
+import { taskReducer } from './taskSlice';
+import { filtersReducer } from './filterSlice';
 
-const counterSlice = createSlice({
-    name: 'counter',
-    initialState: { value: 5},
-    reducers: {
-        increment(state, action){
-            return {
-                ...state,
-                value: state.value += action.payload
-            }
-        }
+export const store = configureStore({
+    reducer: {
+      tasks: taskReducer,
+      filters: filtersReducer
     }
 })
-
-export const store = configureStore({reducer: counterSlice.reducer})

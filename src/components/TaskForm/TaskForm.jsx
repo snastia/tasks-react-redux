@@ -12,11 +12,9 @@ export const TaskForm = () => {
     event.preventDefault();
     const form = event.target;
 
-    dispatch(addTask({
-      id: nanoid(),
-      text: form.elements.text.value,
-      completed: false
-    }))
+    dispatch(addTask(
+      form.elements.text.value,
+    ))
     form.reset();
   };
 
