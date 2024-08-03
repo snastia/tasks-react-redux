@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { Button } from "components/Button/Button";
-import { addTask } from "redux/taskSlice";
+import { addTask } from "redux/operations";
 import css from "./TaskForm.module.css";
 import { nanoid } from "nanoid";
 

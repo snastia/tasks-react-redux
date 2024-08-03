@@ -7,8 +7,8 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <PersistGate loading={<h1>Loading...</h1>} persistor={persistor}>
+    {/* <PersistGate loading={<h1>Loading...</h1>} persistor={persistor}> */}
     <App />
-    </PersistGate>
+    {/* </PersistGate> */}
   </Provider>
 );

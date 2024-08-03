@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getTasks } from "./operations";
+import { getTasks, deleteTask, addTask } from "./operations";
  
 export const taskSlice = createSlice({
     name: 'tasks',
@@ -33,26 +33,42 @@ export const taskSlice = createSlice({
                 state.isLoading = true
             })
     .addCase(getTasks.fulfilled, (state, action) => {
-            state.isLoading = false,
-            state.error = null    
+            state.isLoading = false
+            state.error = null
             state.items = action.payload
             })
     .addCase(getTasks.rejected, (state, action) => {
             state.error = action.payload
     })
+
     .addCase(addTask.pending, (state) => {
         state.isLoading = true
     })
     .addCase(addTask.fulfilled, (state, action) => {
-        state.isLoading = false,
+        state.isLoading = false
         state.error = null
         state.items.push(action.payload.data)
     })
     .addCase(addTask.rejected, (state, action) => {
         state.error = action.payload
     })
+
+    .addCase(deleteTask.pending, (state) => {
+        state.isLoading = true
+    })
+    .addCase(deleteTask.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.error = null
+        const taskIndex = state.items.findIndex((item) => {
+            return item.id === action.payload
+        }) 
+        state.items.splice(taskIndex, 1)
+    })
+    .addCase(deleteTask.rejected, (state, action) => {
+        state.error = action.payload
+    })
     }
 })
 
-export const { deleteTask, toggleCompleted } = taskSlice.actions
+export const { toggleCompleted } = taskSlice.actions
 export const taskReducer = taskSlice.reducer

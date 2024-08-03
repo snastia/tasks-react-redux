@@ -12,16 +12,25 @@ export const getTasks = createAsyncThunk('tasks/getTasks', async () => {
     }
 })
 
-export const addTask = createAsyncThunk('tasks/addTask', async(text)=>{
-    try{
-        const newTask = await axios.post('/tasks', {text} )
+export const addTask = createAsyncThunk('tasks/addTask', async (text) => {
+    try {
+        const newTask = await axios.post('/tasks', {text})
         return newTask
-    }catch(error){
+    } catch(error){
         console.log(error)
     }
-} )
+})
+
+export const deleteTask = createAsyncThunk('tasks/deleteTask', async (id) => {
+    try {
+        const deleteTask = await axios.delete(`/tasks/${id}`)
+        return deleteTask
+    } catch(error){
+        console.log(error)
+    }
+})
 
 // 3 actions
-// 'tasks/getTasks/pending'
-// 'tasks/getTasks/fullfield'
-// 'tasks/getTasks/rejected'
+// pending
+// fullfield
+// rejected

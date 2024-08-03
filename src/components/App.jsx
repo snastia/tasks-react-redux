@@ -9,7 +9,10 @@ import { getTasks } from "redux/operations";
 export const App = () => {
 const dispatch = useDispatch()
 
+console.log('dfgfhf')
+
   useEffect(() => {
+    console.log('kkkff')
     dispatch(getTasks())
   }, [dispatch])
   
