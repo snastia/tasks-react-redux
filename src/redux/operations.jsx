@@ -30,6 +30,15 @@ export const deleteTask = createAsyncThunk('tasks/deleteTask', async (id) => {
     }
 })
 
+export const toggleTask = createAsyncThunk('tasks/toggleTask', async (text) => {
+    try {
+        const toggleTask = await axios.toggle('/tasks', {text})
+        return toggleTask
+    } catch(error){
+        console.log(error)
+    }
+})
+
 // 3 actions
 // pending
 // fullfield

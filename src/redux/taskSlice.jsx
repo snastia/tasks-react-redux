@@ -40,7 +40,6 @@ export const taskSlice = createSlice({
     .addCase(getTasks.rejected, (state, action) => {
             state.error = action.payload
     })
-
     .addCase(addTask.pending, (state) => {
         state.isLoading = true
     })
@@ -52,7 +51,6 @@ export const taskSlice = createSlice({
     .addCase(addTask.rejected, (state, action) => {
         state.error = action.payload
     })
-
     .addCase(deleteTask.pending, (state) => {
         state.isLoading = true
     })
@@ -65,6 +63,16 @@ export const taskSlice = createSlice({
         state.items.splice(taskIndex, 1)
     })
     .addCase(deleteTask.rejected, (state, action) => {
+        state.error = action.payload
+    })
+    .addCase(toggleCompleted.pending, (state) => {
+        state.isLoading = true
+    })
+    .addCase(toggleCompleted.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.error = null
+    })
+    .addCase(toggleCompleted.rejected, (state, action) => {
         state.error = action.payload
     })
     }
