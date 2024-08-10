@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 import css from "./TaskCounter.module.css";
-import { getTasks } from "redux/selectors";
+import { selectTasks } from "redux/selectors";
 
 export const TaskCounter = () => {
 
-  const task = useSelector(getTasks)
+  const task = useSelector(selectTasks)
 
   const taskCounter = task.reduce((acc, task) => {
     if (task.completed) {
