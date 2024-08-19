@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getTasks, deleteTask, addTask } from "./operations";
+import { getTasks, deleteTask, addTask, toggleCompleted } from "./operations";
  
 export const taskSlice = createSlice({
     name: 'tasks',
@@ -71,6 +71,9 @@ export const taskSlice = createSlice({
     .addCase(toggleCompleted.fulfilled, (state, action) => {
         state.isLoading = false
         state.error = null
+
+        const taskIdx = state.items.findIndex(item => item.id === action.payload.data.id)
+        state.items.splice(taskIdx, 1, action.payload.data)
     })
     .addCase(toggleCompleted.rejected, (state, action) => {
         state.error = action.payload
@@ -78,5 +81,4 @@ export const taskSlice = createSlice({
     }
 })
 
-export const { toggleCompleted } = taskSlice.actions
 export const taskReducer = taskSlice.reducer

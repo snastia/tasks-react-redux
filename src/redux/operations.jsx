@@ -30,9 +30,9 @@ export const deleteTask = createAsyncThunk('tasks/deleteTask', async (id) => {
     }
 })
 
-export const toggleTask = createAsyncThunk('tasks/toggleTask', async (text) => {
+export const toggleCompleted = createAsyncThunk('tasks/toggleTask', async (task) => {
     try {
-        const toggleTask = await axios.toggle('/tasks', {text})
+        const toggleTask = await axios.put(`/tasks/${task.id}`, {completed: !task.completed})
         return toggleTask
     } catch(error){
         console.log(error)

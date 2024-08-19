@@ -14,9 +14,8 @@ export const Task = ({ task }) => {
   }
 
   const handleToggle = (e) => {
-    e.preventDefault()
 
-    // dispatch(toggleCompleted(task.id))
+    dispatch(toggleCompleted(task))
   }
 
   return (

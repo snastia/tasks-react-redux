@@ -1,4 +1,4 @@
-import { Task } from "components/Task/Task";
+import { Task } from "components/Tasks/Task/Task";
 import { useSelector } from "react-redux";
 import { selectVisibleTasks } from "redux/selectors";
 
