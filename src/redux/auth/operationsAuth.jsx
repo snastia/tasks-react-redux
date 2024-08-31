@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = 'https://goit-task-manager.herokuapp.com/';
+axios.defaults.baseURL = 'https://62584f320c918296a49543e7.mockapi.io';
 
 /*
  * POST @ /users/signup

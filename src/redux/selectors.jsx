@@ -5,6 +5,7 @@ export const selectTasks = state => state.tasks.items;
 export const selectLoading = state => state.tasks.isLoading;
 export const selectError = state => state.tasks.error;
 export const selectFilters = state => state.filters.status;
+export const selectIsLogged = state => state.auth.isLoggedIn;
 
 export const selectVisibleTasks = createSelector([selectTasks, selectFilters], 
     (tasks, statusFilter) => {

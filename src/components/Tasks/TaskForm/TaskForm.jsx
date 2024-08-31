@@ -11,9 +11,9 @@ export const TaskForm = () => {
     event.preventDefault();
     const form = event.target;
 
-    dispatch(addTask(
-      form.elements.text.value,
-    ))
+    // dispatch(addTask(
+    //   form.elements.text.value,
+    // ))
     form.reset();
   };
 

@@ -8,6 +8,7 @@ import HomePage from "pages/HomePage";
 import { LoginPage } from "pages/LoginPage/LoginPage";
 import { RegPage } from "pages/RegPage/RegPage";
 import { TasksPage } from "pages/TasksPages/TasksPage";
+import { PrivateRoute } from "components/PrivateRoute";
 
 export const App = () => {
 const dispatch = useDispatch()
@@ -26,7 +27,7 @@ console.log('dfgfhf')
         <Route path="/" element={<HomePage/>}/>
         <Route path="/registration" element={<RegPage/>}/>
         <Route path="/login" element={<LoginPage/>}/>
-        <Route path="/tasks" element={<TasksPage/>}/>
+        <Route path="/tasks" element={<PrivateRoute redirectTo="/" component={<TasksPage/>}/>}/>
       </Routes>
     </Layout>
   );
